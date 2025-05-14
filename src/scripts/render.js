@@ -6,7 +6,7 @@
 function LlenarContenido(arr, contain) {
     arr.forEach(element => {
         if (element.beds == null) {
-            contain.innerHTML += `<article class="p-2 text-justify">
+            contain.innerHTML += `<article class="p-2 text-justify w-[266]">
                 <div class=" mask-clip-content overflow-hidden object-center ">
                      <img class="rounded-lg h-[200px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
                 </div>
@@ -30,7 +30,7 @@ function LlenarContenido(arr, contain) {
             </article>`
         }
         else {
-            contain.innerHTML += `<article class="p-2 text-justify">
+            contain.innerHTML += `<article class="p-2 text-justify w-[266]">
                 <div class=" mask-clip-content overflow-hidden object-center ">
                      <img class="rounded-lg h-[200px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
                 </div>
