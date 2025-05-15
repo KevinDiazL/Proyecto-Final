@@ -46,23 +46,23 @@
             </div>
             <div class="rounded-lg mx-4 shadow-xl/20 p-2 sm:hidden ">
                 <p class="text-[10px]">LOCATION</p>
-                <input type="search">
+                <input type="search" id="City" placeholder="write the location">
                 <hr class="border-0.5 border-[#92b5e3]">
-                <p class="text-[10px]">GUESTS</p>
-                <input type="text">
+                <p class="text-[10px]">GUESTS (maximum quantity 10)</p>
+                <p class="valor3">0</p>
             </div>
 
-            <div class="rounded-lg mx-4 shadow-xl/20 p-2 hidden sm:grid sm:grid-cols-3">
+            <div class="rounded-lg mx-4 shadow-xl/20 p-2 hidden sm:grid sm:grid-cols-3 lg:mt-8">
                 <div class="flex flex-col">
-                    <p class="text-[10px]">LOCATION</p>
-                    <input type="search">
+                    <p class="text-[14px]">LOCATION</p>
+                    <input type=" search" id="City2" placeholder="write the location">
                 </div>
                 <div class="flex flex-col">
-                    <p class="text-[10px]">GUESTS</p>
-                    <input type="text">
+                    <p class="text-[14px]">GUESTS (maximum quantity 10)</p>
+                    <p class="valor4">0</p>
                 </div>
                 <button
-                    class="flex flex-row bg-[#eb5757] gap-2 px-4 h-[30px] rounded-2xl text-white w-[100px] mx-auto search2 ">
+                    class="flex flex-row bg-[#eb5757] gap-2 px-4 h-[30px] rounded-2xl text-white w-[100px] mx-auto search2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-4 h-4 my-auto">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,9 +77,9 @@
                 <h3 class="font-bold">Adults</h3>
                 <p class="text-gray-500">Ages 13 or above</p>
                 <div class="flex flex-row gap-2 h-7">
-                    <button class="border-2 px-1 bg-gray-300">-</button>
-                    <p>0</p>
-                    <button class="border-2 px-1 bg-gray-300">+</button>
+                    <button class="rounded-xs px-2.5 bg-gray-300 menos"> - </button>
+                    <p class="valor">0</p>
+                    <button class="rounded-xs  px-2 bg-gray-300 mas">+</button>
                 </div>
             </div>
             <br>
@@ -87,9 +87,9 @@
                 <h3 class="font-bold">Children</h3>
                 <p class="text-gray-500">Ages 13 or above</p>
                 <div class="flex flex-row gap-2 h-7">
-                    <button class="border-2 px-1 bg-gray-300">-</button>
-                    <p>0</p>
-                    <button class="border-2 px-1 bg-gray-300">+</button>
+                    <button class="rounded-xs px-2.5 bg-gray-300 menos2"> - </button>
+                    <p class="valor2">0</p>
+                    <button class="rounded-xs px-2 bg-gray-300 mas2">+</button>
                 </div>
             </div>
             <div class="flex justify-center items-center sm:hidden">
@@ -110,11 +110,11 @@
 
     <main class=" flex-1 h-screen">
         <div class="flex flex-row justify-between mx-3">
-            <h1 class="text-3xl font-bold">Stays In Findland</h1>
-            <p class="text-[#92b5e3]">12+ stays</p>
+            <h1 class="text-3xl font-bold lg:text-4xl">Stays In Findland</h1>
+            <p class="text-[#92b5e3] lg:text-[20px]">12+ stays</p>
         </div>
         <section
-            class="h-screen w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:gap-x-10"
+            class="h-screen w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:gap-x-10 xl:w-[80%]"
             id="container">
             <article class="p-3">
                 <img src="https://definicion.de/wp-content/uploads/2018/01/gato-1.jpg" alt="" class="rounded-lg">
@@ -136,28 +136,6 @@
                     <h3>aaa</h3>
                 </div>
             </article>
-            <article class="p-3">
-                <img src="https://definicion.de/wp-content/uploads/2018/01/gato-1.jpg" alt="" class="rounded-lg">
-                <div>
-                    <div class="flex flex-row justify-between">
-                        <p>aaa</p>
-                        <div class="flex flex-row">
-                            <svg fill="orange" class="w-4 h-full mx-1 " viewBox="0 0 1024 1024"
-                                xmlns="http://www.w3.org/2000/svg" class="icon">
-                                <path
-                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z" />
-                            </svg>
-                            <p class="mx-1">42</p>
-                        </div>
-                    </div>
-                    <h3>aaa</h3>
-                </div>
-            </article>
-
-
-
-
-
         </section>
 
 
