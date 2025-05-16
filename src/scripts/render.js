@@ -5,7 +5,6 @@
  */
 function LlenarContenido(arr, contain) {
     arr.forEach(element => {
-
         contain.innerHTML += `<article class="p-2 text-justify w-[260px] xl:w-[400px] xl:max-h-[380px] hover:border-2 hover:border-black duration-75">
                 <div class=" overflow-hidden object-center ">
                      <img class="rounded-lg h-[200px] xl:h-[300px] xl:w-[450px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
@@ -14,7 +13,7 @@ function LlenarContenido(arr, contain) {
                     <div class="flex flex-row justify-between">
                     <div class="flex flex-row lg:tracking-tight">
                     ${superHostAdd(element)}
-                        <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)}</p>
+                        <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)} beds</p>
                     </div>
                         <div class="flex flex-row lg:text-overflow">
                             <svg fill="orange" class="w-4 h-full mx-1 " viewBox="0 0 1024 1024"
@@ -52,14 +51,16 @@ function bednumber(dato) {
 }
 export { LlenarContenido, filtrado, Skeleton };
 
-function filtrado(location, guest, array, contenedor) {
+function filtrado(location, guest, array, contenedor, text) {
     contenedor.innerHTML = ``;
+    let contador = 0
 
     if (location.value != "" && guest != 0) {
         console.log("ingresaron todo");
         array.forEach(element => {
             if (element.city.includes(location.value) && element.maxGuests == guest) {
                 console.log("ambos")
+                contador++;
                 contenedor.innerHTML += `<article class="p-2 text-justify w-[260px] xl:w-[400px] xl:max-h-[380px] hover:border-2 hover:border-black duration-75">
                 <div class=" overflow-hidden object-center ">
                      <img class="rounded-lg h-[200px] xl:h-[300px] xl:w-[450px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
@@ -68,7 +69,7 @@ function filtrado(location, guest, array, contenedor) {
                     <div class="flex flex-row justify-between">
                     <div class="flex flex-row lg:tracking-tight">
                     ${superHostAdd(element)}
-                        <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)}</p>
+                        <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)} beds</p>
                     </div>
                         <div class="flex flex-row lg:text-overflow">
                             <svg fill="orange" class="w-4 h-full mx-1 " viewBox="0 0 1024 1024"
@@ -82,8 +83,8 @@ function filtrado(location, guest, array, contenedor) {
                     <h4 class="text-justify">${element.title}</h4>
                 </div>
             </article>`
-
             }
+            text.textContent = `${contador} stays`
         });
         /* aqui va toda la logica de filtrado pero con ambos inputs en este caso nombre y edad */
     } else {
@@ -91,6 +92,7 @@ function filtrado(location, guest, array, contenedor) {
             console.log("solo pusieron el nombre :D");
             array.forEach(element => {
                 if (element.city.includes(location.value)) {
+                    contador++;
                     contenedor.innerHTML += `<article class="p-2 text-justify w-[260px] xl:w-[400px] xl:max-h-[380px] hover:border-2 hover:border-black duration-75">
                         <div class=" overflow-hidden object-center ">
                             <img class="rounded-lg h-[200px] xl:h-[300px] xl:w-[450px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
@@ -99,7 +101,7 @@ function filtrado(location, guest, array, contenedor) {
                             <div class="flex flex-row justify-between">
                             <div class="flex flex-row lg:tracking-tight">
                             ${superHostAdd(element)}
-                                <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)}</p>
+                                <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)} beds</p>
                             </div>
                                 <div class="flex flex-row lg:text-overflow">
                                     <svg fill="orange" class="w-4 h-full mx-1 " viewBox="0 0 1024 1024"
@@ -114,6 +116,7 @@ function filtrado(location, guest, array, contenedor) {
                         </div>
                     </article>`
                 }
+                text.textContent = `${contador} stays`
             });
 
             /* aqui solo filtramos por el nombre */
@@ -122,6 +125,7 @@ function filtrado(location, guest, array, contenedor) {
                 console.log("solo ingresaron edad");
                 array.forEach(element => {
                     if (element.maxGuests == guest) {
+                        contador++;
                         contenedor.innerHTML += `<article class="p-2 text-justify w-[260px] xl:w-[400px] xl:max-h-[380px] hover:border-2 hover:border-black duration-75">
                                         <div class=" overflow-hidden object-center ">
                                             <img class="rounded-lg h-[200px] xl:h-[300px] xl:w-[450px] w-[300px] object-cover object-position: center" src="${element.photo}" alt="" >
@@ -130,7 +134,7 @@ function filtrado(location, guest, array, contenedor) {
                                             <div class="flex flex-row justify-between">
                                             <div class="flex flex-row lg:tracking-tight">
                                             ${superHostAdd(element)}
-                                                <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)}</p>
+                                                <p class="text-gray-500 text-[14px] ml-1.5"> ${element.type} ${bednumber(element)} beds</p>
                                             </div>
                                                 <div class="flex flex-row lg:text-overflow">
                                                     <svg fill="orange" class="w-4 h-full mx-1 " viewBox="0 0 1024 1024"
@@ -145,11 +149,13 @@ function filtrado(location, guest, array, contenedor) {
                                         </div>
                                     </article>`
                     }
+                    text.textContent = `${contador} stays`
                 });
                 /* aqui solo filtramos x edad */
             } else {
                 console.log("ninguno")
                 LlenarContenido(array, contenedor)
+                text.textContent = `12+ stays`
             }
         }
     }

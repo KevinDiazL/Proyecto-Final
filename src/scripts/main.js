@@ -22,14 +22,20 @@ let edades4Desktop = document.querySelector(".valor4")
 let contador = 0, contador2 = 0, contador3 = 0;
 let listciudad1 = document.querySelector("#ciudades1")
 let listciudad2 = document.querySelector("#ciudades2")
+let text = document.querySelector("#text")
+let text2 = document.querySelector("#text2")
+let contadorText = 0;
 contain.innerHTML = ``;
 import { stays } from "./stays.js"
 import { LlenarContenido, filtrado, Skeleton } from "./render.js"
 
 console.log(stays)
 LlenarContenido(stays, contain)
+
+
 //---------------------------------------------------------------------------------------------------------------------------//
 // Implementacion de modal
+
 btnModalOn.addEventListener("click", () => {
     modal.classList.remove("hidden");
 })
@@ -45,6 +51,8 @@ modal.addEventListener("click", function (evento) {
 })
 
 //---------------------------------------------------------------------------------------------------------------------------//
+// Programando logica del filtrado dependiendo de cada boton, pues son dos botones(uno para la version Mobile y otro para la version desktop)
+
 let edades4Int = 0;
 let edades3Int = 0;
 btnSearchDesktop.addEventListener("click", () => {
@@ -52,10 +60,15 @@ btnSearchDesktop.addEventListener("click", () => {
     modal.classList.add("hidden");
     Skeleton(stays, contain)
     setTimeout(() => {
-        filtrado(inputDesktop, edades4Int, stays, contain)
+        filtrado(inputDesktop, edades4Int, stays, contain, text2)
+        /* text2.textContent = `${contadorText} stays`
+        if (contadorText > 12) {
+            contadorText = 12;
+            text2.textContent = `+${contadorText} stays`
+        } */
     }, 3000);
+    text.textContent = inputDesktop.value;
 
-    console.log(typeof edades4Int)
 })
 
 
@@ -64,9 +77,14 @@ btnSearchMovil.addEventListener("click", () => {
     edades3Int = parseInt(edades3Mobile.textContent)
     Skeleton(stays, contain)
     setTimeout(() => {
-        filtrado(inputMovil, edades3Int, stays, contain)
+        filtrado(inputMovil, edades3Int, stays, contain, text2)
+        /* text2.textContent = `${contadorText} stays`
+        if (contadorText > 12) {
+            contadorText = 12;
+            text2.textContent = `+${contadorText} stays`
+        } */
     }, 3000);
-
+    text.textContent = inputMovil.value;
 
 })
 
