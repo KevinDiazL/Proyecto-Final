@@ -24,7 +24,7 @@ let listciudad1 = document.querySelector("#ciudades1")
 let listciudad2 = document.querySelector("#ciudades2")
 contain.innerHTML = ``;
 import { stays } from "./stays.js"
-import { LlenarContenido, filtrado } from "./render.js"
+import { LlenarContenido, filtrado, Skeleton } from "./render.js"
 
 console.log(stays)
 LlenarContenido(stays, contain)
@@ -50,15 +50,24 @@ let edades3Int = 0;
 btnSearchDesktop.addEventListener("click", () => {
     edades4Int = parseInt(edades4Desktop.textContent)
     modal.classList.add("hidden");
-    filtrado(inputDesktop, edades4Int, stays, contain)
+    Skeleton(stays, contain)
+    setTimeout(() => {
+        filtrado(inputDesktop, edades4Int, stays, contain)
+    }, 3000);
+
     console.log(typeof edades4Int)
 })
 
 
 btnSearchMovil.addEventListener("click", () => {
     modal.classList.add("hidden");
-    filtrado(inputMovil, edades3Int, stays, contain)
     edades3Int = parseInt(edades3Mobile.textContent)
+    Skeleton(stays, contain)
+    setTimeout(() => {
+        filtrado(inputMovil, edades3Int, stays, contain)
+    }, 3000);
+
+
 })
 
 //---------------------------------------------------------------------------------------------------------------------------//
@@ -142,6 +151,5 @@ ArrSinDuplicados.forEach(element => {
     listciudad1.innerHTML += `<option value="${element}">`
     listciudad2.innerHTML += `<option value="${element}">`
 });
-
 
 
