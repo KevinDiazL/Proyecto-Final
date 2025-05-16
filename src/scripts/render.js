@@ -156,6 +156,7 @@ function filtrado(location, guest, array, contenedor, text) {
                 console.log("ninguno")
                 LlenarContenido(array, contenedor)
                 text.textContent = `12+ stays`
+                // hola :D
             }
         }
     }

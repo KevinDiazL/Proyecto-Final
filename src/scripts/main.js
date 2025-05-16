@@ -61,11 +61,6 @@ btnSearchDesktop.addEventListener("click", () => {
     Skeleton(stays, contain)
     setTimeout(() => {
         filtrado(inputDesktop, edades4Int, stays, contain, text2)
-        /* text2.textContent = `${contadorText} stays`
-        if (contadorText > 12) {
-            contadorText = 12;
-            text2.textContent = `+${contadorText} stays`
-        } */
     }, 3000);
     text.textContent = inputDesktop.value;
 
@@ -78,11 +73,6 @@ btnSearchMovil.addEventListener("click", () => {
     Skeleton(stays, contain)
     setTimeout(() => {
         filtrado(inputMovil, edades3Int, stays, contain, text2)
-        /* text2.textContent = `${contadorText} stays`
-        if (contadorText > 12) {
-            contadorText = 12;
-            text2.textContent = `+${contadorText} stays`
-        } */
     }, 3000);
     text.textContent = inputMovil.value;
 
